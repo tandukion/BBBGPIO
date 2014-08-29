@@ -5,29 +5,29 @@ NAME = ./lib/libgpiommap.a
 TMS = main.c
 TMO = $(TMS:.c=.o)
 TMN = gpiommap
-LIBS = -lgpiommap
-LIBPATH = ./lib
 RM = rm -f
 
 all: $(OBJ)
-	ar -rc $(NAME) $(OBJ)
-	ranlib $(NAME)
-
-test: $(NAME) $(TMO)
-	cc -L$(LIBPATH) $(TMO) $(LIBS) -o $(TMN)
+        ar -rc $(NAME) $(OBJ)
+        ranlib $(NAME)
 
 clean:
-	-$(RM) $(OBJ)
-	-$(RM) *~
-	-$(RM) \#*
-	-$(RM) *.core
+        -$(RM) $(OBJ)
+        -$(RM) *~
+        -$(RM) \#*
+        -$(RM) *.core
 
 fclean: clean
-	-$(RM) $(NAME)
-	-$(RM) $(TMN)
+        -$(RM) $(NAME)
+        -$(RM) $(TMN)
 
 re: fclean all
 
 $(NAME): all
 
 ftest: fclean test
+
+install: all
+        cp src/gpio.h /usr/include/
+        cp src/am335x.h /usr/include/
+        cp lib/libgpiommap.a /usr/lib/

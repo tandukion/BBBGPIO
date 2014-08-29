@@ -1,6 +1,15 @@
 ### GPIO Library for BeagleBone
+#### installation
+    make
+    make install
 
-#### high performance I/O 
+#### sample
+    gcc main.c -lgpiommap
+    ./a.out
+
+Look at User LED, how fancy it is!
+
+#### high performance I/O
 
 Currently implemented functions:
 
