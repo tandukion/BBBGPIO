@@ -8,18 +8,18 @@ TMN = gpiommap
 RM = rm -f
 
 all: $(OBJ)
-        ar -rc $(NAME) $(OBJ)
-        ranlib $(NAME)
+	ar -rc $(NAME) $(OBJ)
+	ranlib $(NAME)
 
 clean:
-        -$(RM) $(OBJ)
-        -$(RM) *~
-        -$(RM) \#*
-        -$(RM) *.core
+	-$(RM) $(OBJ)
+	-$(RM) *~
+	-$(RM) \#*
+	-$(RM) *.core
 
 fclean: clean
-        -$(RM) $(NAME)
-        -$(RM) $(TMN)
+	-$(RM) $(NAME)
+	-$(RM) $(TMN)
 
 re: fclean all
 
@@ -28,6 +28,6 @@ $(NAME): all
 ftest: fclean test
 
 install: all
-        cp src/gpio.h /usr/include/
-        cp src/am335x.h /usr/include/
-        cp lib/libgpiommap.a /usr/lib/
+	cp src/gpio.h /usr/include/
+	cp src/am335x.h /usr/include/
+	cp lib/libgpiommap.a /usr/lib/
