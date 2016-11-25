@@ -1,8 +1,9 @@
 #include <gpio.h>
 
 int main() {
-	init();
+  init();
 	while(1) {
+	  /*
 		digitalWrite(USR3, HIGH);
 		usleep(50000);
 		digitalWrite(USR2, HIGH);
@@ -19,13 +20,20 @@ int main() {
 		usleep(50000);
 		digitalWrite(USR0, LOW);
 		usleep(50000);
-
-/*
+	  */
+	  /*
+	  pinMode(P8_8,OUTPUT,7,PULLUP);
+	  digitalWrite(P8_8,HIGH);
+	  usleep(100000);
+	  digitalWrite(P8_8,LOW);
+	  usleep(100000);
+	  */
+	  /**/
 	  	// set P8_3 as an INPUT with PULLDOWN enabled
 	  	pinMode(P8_3, INPUT, 7, PULLDOWN);
 		// turn on USR2 LED when P8_3 is set high
 		digitalWrite(USR2, digitalRead(P8_3));
-*/
+		/**/
 	}	
 	return 0;
 }
